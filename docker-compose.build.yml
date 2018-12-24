@@ -1,0 +1,11 @@
+version: '3.3'
+
+services:
+  android:
+    image: docker.io/yuxingxin/android-build:28.0.3
+    volumes:
+      - .:/app
+      - $HOME/.gradle:/root/.gradle
+      - $ANDROID_HOME:/usr/local/android/sdk
+    working_dir: /app
+    command: /bin/bash -c "./gradlew build"
